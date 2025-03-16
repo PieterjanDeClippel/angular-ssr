@@ -12,6 +12,7 @@ namespace angular_ssr
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddHealthChecks();
 
             var app = builder.Build();
 
@@ -25,6 +26,7 @@ namespace angular_ssr
 
             app.UseAuthorization();
 
+            app.UseHealthChecks("/healthz");
             app.MapGet("/", (context) =>
             {
                 context.Response.Redirect("/WeatherForecast");
