@@ -47,7 +47,7 @@ jobs:
       id: push-ghcr
       uses: docker/build-push-action@v6
       with:
-        context: .
+        context: ./angular-ssr
         file: ./angular-ssr/Dockerfile
         push: true
         tags: ${{ steps.meta-ghcr.outputs.tags }}
